@@ -56,7 +56,7 @@ pipeline {
      }
     post{
         always{
-            slackSend( channel: "#fundamentos-de-devops", token: "tokenslack", color: "good", message: "$CHANGE_AUTHOR")
+            slackSend( channel: "#fundamentos-de-devops", token: "tokenslack", color: "good", message: "${CHANGE_AUTHOR}")
         }
     }
 }
