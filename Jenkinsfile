@@ -55,7 +55,7 @@ pipeline {
             }
      }
     post{
-        failure{
+        always{
             slackSend( channel: "#fundamentos-de-devops", token: "tokenslack", color: "good", message: "${custom_msg()}")
         }
     }
