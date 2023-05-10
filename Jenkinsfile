@@ -57,7 +57,7 @@ pipeline {
 
 post {
     always {
-        def pipelineStatus = currentBuild.result ?: 'SUCCESS' // Obtener el estado de la ejecución o establecerlo en SUCCESS si no se encuentra disponible
+        def pipelineStatus = currentBuild.result ?: 'SUCCESS' 
         slackSend(channel: '#fundamentos-de-devops', token: 'tokenslack', color: pipelineStatus == 'SUCCESS' ? 'good' : 'danger', message: "La ejecución del Pipeline (${BUILD_NUMBER}) iniciado por (${CHANGE_AUTHOR}) ha finalizado con estado ${pipelineStatus}")
     }
 }
