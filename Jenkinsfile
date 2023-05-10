@@ -54,17 +54,18 @@ pipeline {
             }
             }
      }
-    post{
-        always{
-            slackSend( channel: "#fundamentos-de-devops", token: "tokenslack", color: "good", message: "${custom_msg()}")
-        }
-    }
-}
+
    def custom_msg()
         {
         def JENKINS_URL= "localhost:8080"
         def JOB_NAME = env.JOB_NAME
         def BUILD_ID= env.BUILD_ID
         def JENKINS_LOG= " SUCCES: Job [${env.JOB_NAME}] Logs path: ${JENKINS_URL}/job/${JOB_NAME}/${BUILD_ID}/consoleText"
-        return 
+        return }
+
+    post{
+        always{
+            slackSend( channel: "#fundamentos-de-devops", token: "tokenslack", color: "good", message: "${custom_msg()}")
+        }
+    }
 }
