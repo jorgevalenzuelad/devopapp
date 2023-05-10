@@ -56,15 +56,15 @@ pipeline {
      }
     post{
         always{
-            slackSend( channel: "#fundamentos-de-devops", token: "tokenslack", color: "good", message: "${CHANGE_AUTHOR}")
+            slackSend( channel: "#fundamentos-de-devops", token: "tokenslack", color: "good", message: "${custom_msg()}")
         }
     }
 }
    def custom_msg()
         {
-        def JENKINS_URL= "34.69.44.55:8080"
+        def JENKINS_URL= "localhost:8080"
         def JOB_NAME = env.JOB_NAME
         def BUILD_ID= env.BUILD_ID
-        def JENKINS_LOG= " FAILED: Job [${env.JOB_NAME}] Logs path: ${JENKINS_URL}/job/${JOB_NAME}/${BUILD_ID}/consoleText"
+        def JENKINS_LOG= " SUCCES: Job [${env.JOB_NAME}] Logs path: ${JENKINS_URL}/job/${JOB_NAME}/${BUILD_ID}/consoleText"
         return 
 }
