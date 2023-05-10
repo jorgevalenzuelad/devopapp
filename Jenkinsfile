@@ -57,7 +57,7 @@ pipeline {
 
 post {
     always {
-        slackSend(channel: '#fundamentos-de-devops', token: 'tokenslack', color: pipelineStatus == 'SUCCESS' ? 'good' : 'danger', message: "La ejecución del Pipeline (${BUILD_NUMBER}) iniciado por (${CHANGE_AUTHOR}) ha finalizado con estado (${currentBuild.result})")
+        slackSend(channel: '#fundamentos-de-devops', token: 'tokenslack', message: "La ejecución del Pipeline (${BUILD_NUMBER}) iniciado por (${CHANGE_AUTHOR}) ha finalizado con estado (${currentBuild.result})")
     }
 }
 
