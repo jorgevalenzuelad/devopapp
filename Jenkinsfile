@@ -11,7 +11,7 @@ pipeline {
                 SCANNER_HOME = tool 'SonarQube Conexion'
             }
             steps {
-              withSonarQubeEnv(credentialsId: 'token_sonar_admin', installationName: 'SonarInDocker') {
+              withSonarQubeEnv(credentialsId: 'nuevotkensonar', installationName: 'SonarInDocker') {
               sh '''$SCANNER_HOME/bin/sonar-scanner \
             -Dsonar.projectKey=devopapp \
             -Dsonar.projectName=devopapp \
